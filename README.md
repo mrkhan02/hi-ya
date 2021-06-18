@@ -1,7 +1,7 @@
 # hi-ya
 # download project file -> git clone https://github.com/mrkhan02/hi-ya.git 
 # open hi-ya
-# write command listed below :
+# write command listed below in terminal:
 # pip install python3.8
 # pip install django
 # python manage.py runserver
