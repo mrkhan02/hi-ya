@@ -9,7 +9,8 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <div class="h5">@{{request.user}}</div>
+                    <a href="profile" style='text-decoration:none'><div class="h5">@{{request.user}}</div></a>
+                    
                     <div class="h7 text-muted">Fullname : {{request.user.get_full_name}}</div>
                     <div class="h7">Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java, Node.js,
                         etc.

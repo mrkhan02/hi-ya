@@ -8,7 +8,7 @@ def home(request):
     if request.user.is_authenticated:
         usr = User.objects.all().filter(~Q(username=request.user))
         dic={'usr':usr}
-        print(usr)
+        
         return render(request,'home/index.html',dic)
     else:
         return render(request,'home.html')
@@ -65,4 +65,7 @@ def handelLogout(request):
     messages.success(request, "Successfully logged out")
     return redirect('home')
 def loginPage(request):
-    return render(request, 'login.html')    
+    return render(request, 'login.html') 
+
+def profile(request):
+    return render(request,'home/myprofile.html')       
