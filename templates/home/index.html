@@ -4,13 +4,13 @@
 
 {% load static %}
 
-<div class="container-fluid gedf-wrapper my-2">
+<div class="container-fluid gedf-wrapper my-2" >
     <div class="row">
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <div class="h5">@LeeCross</div>
-                    <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
+                    <div class="h5">@{{request.user}}</div>
+                    <div class="h7 text-muted">Fullname : {{request.user.get_full_name}}</div>
                     <div class="h7">Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java, Node.js,
                         etc.
                     </div>
@@ -247,26 +247,18 @@
 
         </div>
         <div class="col-md-3">
+            {%for i in usr%}
             <div class="card gedf-card">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h5 class="card-title">{{i}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{i.get_full_name}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
                     <a href="#" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
-            <div class="card gedf-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
+            {%endfor%}
         </div>
     </div>
 </div>

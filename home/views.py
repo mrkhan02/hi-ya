@@ -2,10 +2,14 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth  import authenticate,  login, logout
 from django.contrib import messages
+from django.db.models import Q
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
-        return render(request,'home/index.html')
+        usr = User.objects.all().filter(~Q(username=request.user))
+        dic={'usr':usr}
+        print(usr)
+        return render(request,'home/index.html',dic)
     else:
         return render(request,'home.html')
 
@@ -15,6 +19,8 @@ def handleSignUp(request):
         username=request.POST['username']
         email=request.POST['email']
         pass1=request.POST['password']
+        fname=request.POST['fname']
+        lname=request.POST['lname']
         try:
             user= User.objects.get(username=username)
 
@@ -29,7 +35,8 @@ def handleSignUp(request):
             except User.DoesNotExist:
                 myuser = User.objects.create_user(username, email, pass1)
 
-
+        myuser.first_name= fname
+        myuser.last_name= lname
         myuser.save()
         return redirect('/')
 
