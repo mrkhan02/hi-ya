@@ -25,7 +25,7 @@ class userDetails(models.Model):
     slug=models.CharField(max_length=500,default=username)
 
     def __str__(self):
-        return str(self.username) +' added'
+        return str(self.username)
 
 
 

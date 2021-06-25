@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'chat',
     # 'rest_framework',
     # 'corsheaders',
 ]
