@@ -258,11 +258,14 @@
         <div class="modal-body">
 
 
-          <form>
+          <form method="POST" action='/update' enctype='multipart/form-data'>
             <div class="mb-3">
               <label for="formFile" class="form-label">Profile picture</label>
-              <input class="form-control" type="file" id="formFile">
+              {{form.media}}
+              {{form.as_p}}
+              <input type="file" class="form-control" id="myfile" name="myfile" >
             </div>
+            {% csrf_token %}
             <div class="row mb-3">
               <div class="col">
                 <input type="text" class="form-control" placeholder="First name" aria-label="First name">
@@ -271,21 +274,11 @@
                 <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
               </div>
             </div>
-            <div class="mb-3 col-md-8">
-              <div class="input-group has-validation">
-                <span class="input-group-text" id="UsernamePrepend">@</span>
-                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" required>
-                <div class="invalid-feedback">
-                  Please choose a unique and valid username.
-                </div>
-              </div>
-            </div>
+            
             <div class="mb-3 col-md-8">
               <input type="text" class="form-control" placeholder="Phone Number">
             </div>
-            <div class="mb-3 col-md-8">
-              <input type="email" class="form-control" placeholder="name@example.com">
-            </div>
+            
             <div class="row mb-3">
               <div class="col">
                 <input type="text" class="form-control" placeholder="Institute/Company" aria-label="Institute/Company">
